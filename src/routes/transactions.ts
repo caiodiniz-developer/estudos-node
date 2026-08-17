@@ -4,7 +4,7 @@ import { z } from "zod";
 import { randomUUID } from "node:crypto";
 import { checkSessionIdExists } from "../middlewares/check-session-id-exists.js";
 
-//testes automatizados:
+//testes automatizados :
 // - unitarios: teste da unidade da sua aplicação
 // - integracao: counicacao entre duas ou mais unidades da sua aplicacao
 // - e2e: teste de ponta a ponta, simulando o comportamento do usuario
