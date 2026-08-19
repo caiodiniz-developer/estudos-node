@@ -12,6 +12,8 @@ describe("Transactions routes", () => {
     await app.close();
   });
 
+  //ter poucos teste e2e
+
   beforeEach(() => {
     execSync("npm run knex migrate:rollback --all");
     execSync("npm run knex migrate:latest");
