@@ -1,8 +1,6 @@
-import { it, beforeAll, afterAll, describe } from "vitest";
+import { it, beforeAll, afterAll, describe, expect } from "vitest";
 import request from "supertest";
 import { app } from "../src/app.js";
-
-//todo teste deve se excluir d qualquer contexto, jamais escrever um teste que depende de outro teste
 
 describe("Transactions routes", () => {
   beforeAll(async () => {
@@ -34,5 +32,17 @@ describe("Transactions routes", () => {
       });
 
     const cookie = createTransactionResponse.get("Set-Cookie");
+
+    const listTransactionsResponse = await request(app.server)
+      .get("/transactions")
+      .set("Cookie", cookie!)
+      .expect(200);
+
+    expect(listTransactionsResponse.body.transactions).toEqual([
+      expect.objectContaining({
+        title: "New transaction",
+        amount: 5000,
+      }),
+    ]);
   });
 });
