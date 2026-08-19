@@ -1,6 +1,10 @@
-import { test, beforeAll, afterAll } from "vitest";
+import { test, beforeAll, afterAll, describe } from "vitest";
 import request from "supertest";
 import { app } from "../src/app.js";
+
+describe('Transactions routes', () =>{
+  
+})
 
 beforeAll(async () => {
   await app.ready();
